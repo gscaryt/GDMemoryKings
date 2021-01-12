@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/Tools/ButtonBig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Buttons/mk_logo.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Buttons/mk_logo_hover.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Buttons/players_three_hover.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Buttons/players_two_hover.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Tools/BigDimboTexts.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Tools/MediumDimboTexts.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Buttons/players_four_hover.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Buttons/players_two.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Buttons/players_three.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Buttons/players_four.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Tools/ButtonSmall.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Tools/ToggleBig.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/StartScene.gd" type="Script" id=16]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="StartScene" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartMenu" type="VBoxContainer" parent="."]
+margin_left = 30.0
+margin_top = 37.0
+margin_right = 630.0
+margin_bottom = 712.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+
+[node name="NumberOfPlayers" type="VBoxContainer" parent="StartMenu"]
+margin_right = 600.0
+margin_bottom = 125.0
+
+[node name="Label" parent="StartMenu/NumberOfPlayers" instance=ExtResource( 7 )]
+
+[node name="Buttons" type="HBoxContainer" parent="StartMenu/NumberOfPlayers"]
+margin_top = 65.0
+margin_right = 600.0
+margin_bottom = 125.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="1" parent="StartMenu/NumberOfPlayers/Buttons" instance=ExtResource( 1 )]
+margin_left = 165.0
+margin_right = 225.0
+pressed = true
+group = SubResource( 1 )
+
+[node name="2" parent="StartMenu/NumberOfPlayers/Buttons" instance=ExtResource( 1 )]
+margin_left = 235.0
+margin_right = 295.0
+group = SubResource( 1 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+
+[node name="3" parent="StartMenu/NumberOfPlayers/Buttons" instance=ExtResource( 1 )]
+margin_left = 305.0
+margin_right = 365.0
+group = SubResource( 1 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[node name="4" parent="StartMenu/NumberOfPlayers/Buttons" instance=ExtResource( 1 )]
+margin_left = 375.0
+margin_right = 435.0
+group = SubResource( 1 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+
+[node name="GridSize" type="VBoxContainer" parent="StartMenu"]
+margin_top = 135.0
+margin_right = 600.0
+margin_bottom = 250.0
+
+[node name="Label" parent="StartMenu/GridSize" instance=ExtResource( 7 )]
+text = "Grid Size"
+
+[node name="Buttons" type="HBoxContainer" parent="StartMenu/GridSize"]
+margin_top = 65.0
+margin_right = 600.0
+margin_bottom = 115.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="5x5" parent="StartMenu/GridSize/Buttons" instance=ExtResource( 8 )]
+margin_left = 205.0
+margin_top = 12.0
+margin_right = 229.0
+margin_bottom = 37.0
+
+[node name="GridSizeTog" parent="StartMenu/GridSize/Buttons" instance=ExtResource( 15 )]
+margin_left = 249.0
+margin_right = 349.0
+
+[node name="6x6" parent="StartMenu/GridSize/Buttons" instance=ExtResource( 8 )]
+margin_left = 369.0
+margin_top = 12.0
+margin_right = 395.0
+margin_bottom = 37.0
+text = "6x6"
+
+[node name="SetupVariant" type="VBoxContainer" parent="StartMenu"]
+margin_top = 260.0
+margin_right = 600.0
+margin_bottom = 375.0
+
+[node name="Label" parent="StartMenu/SetupVariant" instance=ExtResource( 7 )]
+text = "Setup Variant"
+
+[node name="Buttons" type="HBoxContainer" parent="StartMenu/SetupVariant"]
+margin_top = 65.0
+margin_right = 600.0
+margin_bottom = 115.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Standard" parent="StartMenu/SetupVariant/Buttons" instance=ExtResource( 8 )]
+margin_left = 166.0
+margin_top = 12.0
+margin_right = 229.0
+margin_bottom = 37.0
+text = "Standard"
+
+[node name="SetupVariantTog" parent="StartMenu/SetupVariant/Buttons" instance=ExtResource( 15 )]
+margin_left = 249.0
+margin_right = 349.0
+
+[node name="Alternate" parent="StartMenu/SetupVariant/Buttons" instance=ExtResource( 8 )]
+margin_left = 369.0
+margin_top = 12.0
+margin_right = 433.0
+margin_bottom = 37.0
+text = "Alternate"
+
+[node name="Start" type="HBoxContainer" parent="StartMenu"]
+margin_top = 385.0
+margin_right = 600.0
+margin_bottom = 635.0
+rect_min_size = Vector2( 50, 50 )
+alignment = 1
+
+[node name="StartLogo" type="TextureButton" parent="StartMenu/Start"]
+margin_left = 175.0
+margin_right = 425.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="About" type="HBoxContainer" parent="StartMenu"]
+margin_top = 645.0
+margin_right = 600.0
+margin_bottom = 675.0
+rect_min_size = Vector2( 600, 30 )
+alignment = 2
+
+[node name="AboutButton" parent="StartMenu/About" instance=ExtResource( 14 )]
+margin_left = 570.0
+margin_right = 600.0
+[connection signal="pressed" from="StartMenu/NumberOfPlayers/Buttons/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="StartMenu/NumberOfPlayers/Buttons/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="StartMenu/NumberOfPlayers/Buttons/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="StartMenu/NumberOfPlayers/Buttons/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="StartMenu/GridSize/Buttons/GridSizeTog" to="." method="_on_GridSizeTog_pressed"]
+[connection signal="pressed" from="StartMenu/SetupVariant/Buttons/SetupVariantTog" to="." method="_on_SetupVariantTog_pressed"]
+[connection signal="pressed" from="StartMenu/Start/StartLogo" to="." method="_on_StartLogo_pressed"]

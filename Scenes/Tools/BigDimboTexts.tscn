@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/dimbo50.tres" type="DynamicFont" id=1]
+
+[node name="Label" type="Label"]
+margin_right = 600.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Number of Players"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

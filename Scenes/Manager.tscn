@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/StartScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SceneTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Manager.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/queen.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/bishop.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/knight.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/counter.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/rook.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/click1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/click3.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/click2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/buttonclick.wav" type="AudioStream" id=14]
+
+[node name="Manager" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.572549, 0.572549, 0.572549, 1 )
+position = Vector2( 331.305, 376.099 )
+scale = Vector2( 0.581242, 0.538055 )
+
+[node name="StartScene" parent="." instance=ExtResource( 1 )]
+margin_right = 660.0
+margin_bottom = 750.0
+rect_min_size = Vector2( 660, 750 )
+
+[node name="Game" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="SceneTransition" parent="." instance=ExtResource( 4 )]
+margin_right = 660.0
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Bishop" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 7 )
+volume_db = 0.5
+
+[node name="Knight" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 8 )
+volume_db = 0.5
+
+[node name="Rook" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 10 )
+volume_db = 0.5
+pitch_scale = 0.75
+
+[node name="Counter" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 9 )
+volume_db = 0.5
+
+[node name="Queen" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 6 )
+volume_db = 0.5
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 11 )
+volume_db = 0.5
+
+[node name="PutDown" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 13 )
+volume_db = 0.5
+
+[node name="TogClick" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 12 )
+volume_db = 3.0
+pitch_scale = 2.0
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 14 )
+volume_db = 0.4
+pitch_scale = 1.8

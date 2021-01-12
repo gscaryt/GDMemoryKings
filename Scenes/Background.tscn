@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/grey_marble.jpg" type="Texture" id=1]
+
+[node name="Background" type="Sprite"]
+modulate = Color( 0.419608, 0.419608, 0.419608, 1 )
+position = Vector2( 531.092, 1080.11 )
+scale = Vector2( 1.16834, 1.32095 )
+texture = ExtResource( 1 )
